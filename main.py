@@ -8,14 +8,16 @@ driver = webdriver.Edge(edge_path)
 
 driver.get(url)
 
-
+# 定位參數
 class Keyword:
     select_language_confirm = '/html/body/div[1]/div[1]/div[1]/div[2]/div[3]/a'
 
 
-def main():
+def register():
     driver.find_element_by_xpath(Keyword.select_language_confirm).click()
 
 
+
+
 if __name__ == '__main__':
-    main()
+    register()
