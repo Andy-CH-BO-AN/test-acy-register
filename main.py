@@ -15,7 +15,7 @@ driver.get(url)
 
 # 定位參數
 class Keyword:
-    country_list = ['中国', '臺湾', '巴西', '喀麦隆']
+    country_list = ['China', 'Taiwan']
     select_language_box = '/html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]'
     select_language_name = '//*[@id="gatsby-focus-wrapper"]/div[1]/div[2]/div[2]/div[2]/div[2]/div/*/p[text() = ' \
                            '"English"] '
