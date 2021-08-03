@@ -1,6 +1,10 @@
+import time
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as ec
 import random
 
 url = 'https://acy.com/en/open-live-account'
@@ -12,6 +16,9 @@ driver.get(url)
 # 定位參數
 class Keyword:
     country_list = ['中国', '臺湾', '巴西', '喀麦隆']
+    select_language_box = '/html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]'
+    select_language_name = '//*[@id="gatsby-focus-wrapper"]/div[1]/div[2]/div[2]/div[2]/div[2]/div/*/p[text() = ' \
+                           '"English"] '
     select_language_confirm = '/html/body/div[1]/div[1]/div[1]/div[2]/div[3]/a'
     account_type_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                        '2]/div/div/form/div[1]/div/div/div[1] '
@@ -23,7 +30,12 @@ class Keyword:
 
 
 def register():
-    driver.find_element_by_xpath(Keyword.select_language_confirm).click()
+    for i in range(2):
+        print(i)
+        time.sleep(3)
+        driver.find_element_by_xpath(Keyword.select_language_box).click()
+        driver.find_element_by_xpath(Keyword.select_language_name).click()
+        driver.find_element_by_xpath(Keyword.select_language_confirm).click()
     # select account type
     driver.find_element_by_xpath(Keyword.account_type_box).click()
     driver.find_element_by_xpath(Keyword.account_type_personal).click()
