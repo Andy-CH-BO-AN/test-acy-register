@@ -16,6 +16,7 @@ driver.get(url)
 # 定位參數
 class Keyword:
     country_list = ['China', 'Taiwan']
+    title_sequence = [1, 2, 3, 4, 5]
     select_language_box = '/html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]'
     select_language_name = '//*[@id="gatsby-focus-wrapper"]/div[1]/div[2]/div[2]/div[2]/div[2]/div/*/p[text() = ' \
                            '"English"] '
@@ -27,21 +28,35 @@ class Keyword:
     country_name_box = '//*[@id="gatsby-focus-wrapper"]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                        '2]/div/div/form/div[2]/div/div/div/div/div[1]/div '
     select_country = f'//*[@id="liWrapper"]/*[text()="{random.choice(country_list)}"]'
+    title_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/form/div[' \
+                '3]/div/div/div[1] '
+    select_title = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/form/div[' \
+                   f'3]/div/div/div[2]/div/li[{random.choice(title_sequence)}]'
+    first_name_input = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                       '2]/div/div/form/div[4]/div/input '
 
 
 def register():
+    WebDriverWait(driver, 5, 0.5). \
+        until(ec.element_to_be_clickable((By.XPATH, Keyword.select_language_confirm)))
+    # select language box will appear twice
     for i in range(2):
-        print(i)
-        time.sleep(3)
         driver.find_element_by_xpath(Keyword.select_language_box).click()
         driver.find_element_by_xpath(Keyword.select_language_name).click()
         driver.find_element_by_xpath(Keyword.select_language_confirm).click()
+        time.sleep(3)
     # select account type
     driver.find_element_by_xpath(Keyword.account_type_box).click()
     driver.find_element_by_xpath(Keyword.account_type_personal).click()
     # select country
     driver.find_element_by_xpath(Keyword.country_name_box).click()
     driver.find_element_by_xpath(Keyword.select_country).click()
+    # select title
+    driver.find_element_by_xpath(Keyword.title_box).click()
+    driver.find_element_by_xpath(Keyword.select_title).click()
+    # input First name
+    driver.find_element_by_xpath(Keyword.first_name_input).clear()
+    driver.find_element_by_xpath(Keyword.first_name_input).send_keys('first name')
 
 
 if __name__ == '__main__':
