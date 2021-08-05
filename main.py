@@ -12,12 +12,14 @@ url = 'https://acy.com/en/open-live-account'
 edge_path = EdgeChromiumDriverManager().install()
 driver = webdriver.Edge(edge_path)
 driver.get(url)
+driver.maximize_window()
 
 
-# locators
 class Locator:
+    """
+    locators
+    """
     country_list = ['China', 'Taiwan']
-    title_sequence = [1, 2, 3, 4, 5]
     select_language_box = '/html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]'
     select_language_name = '//*[@id="gatsby-focus-wrapper"]/div[1]/div[2]/div[2]/div[2]/div[2]/div/*/p[text() = ' \
                            '"English"] '
@@ -31,8 +33,8 @@ class Locator:
     select_country = f'//*[@id="liWrapper"]/*[text()="{random.choice(country_list)}"]'
     select_title_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/form/div[' \
                        '3]/div/div/div[1] '
-    select_title = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/form/div[' \
-                   f'3]/div/div/div[2]/div/li[{random.choice(title_sequence)}]'
+    # css selector
+    select_title = f'li[data-testid="title{random.randint(0, 4)}"]'
     input_first_name = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                        '2]/div/div/form/div[4]/div/input '
     input_middle_name = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
@@ -53,6 +55,7 @@ class Locator:
                      '8]/div[2]/div/div/div[2]/div/div/input '
     button_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                        '2]/div/div/form/button '
+    select_gender_box = ''
 
 
 def register_personal_detail():
@@ -70,7 +73,7 @@ def register_personal_detail():
     driver.find_element_by_xpath(Locator.select_country).click()
     # select title
     driver.find_element_by_xpath(Locator.select_title_box).click()
-    driver.find_element_by_xpath(Locator.select_title).click()
+    driver.find_element_by_css_selector(Locator.select_title).click()
     # input first name
     driver.find_element_by_xpath(Locator.input_first_name).clear()
     driver.find_element_by_xpath(Locator.input_first_name).send_keys('first name')
@@ -102,5 +105,26 @@ def register_personal_detail():
     driver.find_element_by_xpath(Locator.button_next_page).click()
 
 
+def register_about_you():
+    pass
+
+
+def register_investment():
+    pass
+
+
+def register_experience():
+    pass
+
+
+def register_terms_and_conditions():
+    pass
+
+
+def confirm_ID():
+    pass
+
+
 if __name__ == '__main__':
     register_personal_detail()
+    register_about_you()
