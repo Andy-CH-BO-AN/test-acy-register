@@ -205,7 +205,7 @@ class ConfirmID:
                             '2]/div/div/form/div/div[4]/div/div[1]/input '
     button_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                        '2]/div/div/form/button '
-    title_register_successfully = 'open-live-acc-form-wrapper,live-acc-after-submit'
+    title_register_successfully = 'div[data-testid="thankYouPage"]'
 
 
 class ExecuteJavascript:
