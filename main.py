@@ -206,3 +206,6 @@ class Register:
         driver.find_element_by_xpath(Locators.ConfirmID.upload_other_document).send_keys(test_image_absolute_path)
         # click next button to the next page
         driver.find_element_by_xpath(Locators.ConfirmID.button_next_page).click()
+        # wait next page title
+        WebDriverWait(driver, 10, 0.5). \
+            until(ec.visibility_of_element_located((By.CLASS_NAME, Locators.ConfirmID.title_register_successfully)))
