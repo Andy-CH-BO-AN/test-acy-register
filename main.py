@@ -139,43 +139,57 @@ def investment():
 
 
 def experience():
-    # wait for account type url shows up
+    # wait for the first question shows up
     WebDriverWait(driver, 10, 0.5). \
-        until(ec.visibility_of_element_located((By.XPATH, Locators.Experience.input_first_question)))
-    # select the first question
-    driver.find_element_by_xpath(Locators.Experience.input_first_question).click()
-    # select the second question
-    driver.find_element_by_xpath(Locators.Experience.input_second_question).click()
-    # select the third question
-    driver.find_element_by_xpath(Locators.Experience.input_third_question).click()
-    # select the fourth question
-    driver.find_element_by_xpath(Locators.Experience.input_fourth_question).click()
-    # select the fifth question
-    driver.find_element_by_xpath(Locators.Experience.input_fifth_question).click()
-    # select next button to the second page
+        until(ec.visibility_of_element_located((By.XPATH, Locators.Experience.click_first_question)))
+    # click the first question
+    driver.find_element_by_xpath(Locators.Experience.click_first_question).click()
+    # click the second question
+    driver.find_element_by_xpath(Locators.Experience.click_second_question).click()
+    # click the third question
+    driver.find_element_by_xpath(Locators.Experience.click_third_question).click()
+    # click the fourth question
+    driver.find_element_by_xpath(Locators.Experience.click_fourth_question).click()
+    # click the fifth question
+    driver.find_element_by_xpath(Locators.Experience.click_fifth_question).click()
+    # click next button to the second page
     driver.find_element_by_xpath(Locators.Experience.button_next_page).click()
-    # select the sixth question
-    driver.find_element_by_xpath(Locators.Experience.input_sixth_question).click()
-    # select the seventh question
-    driver.find_element_by_xpath(Locators.Experience.input_seventh_question).click()
+    # click the sixth question
+    driver.find_element_by_xpath(Locators.Experience.click_sixth_question).click()
+    # click the seventh question
+    driver.find_element_by_xpath(Locators.Experience.click_seventh_question).click()
     # wait for the button can be clicked
     WebDriverWait(driver, 10, 0.5). \
-        until(ec.element_to_be_clickable((By.XPATH, Locators.Experience.input_eighth_question)))
-    # select the eighth question
-    driver.find_element_by_xpath(Locators.Experience.input_eighth_question).click()
-    # select the ninth question
-    driver.find_element_by_xpath(Locators.Experience.input_ninth_question).click()
-    # select the tenth question
-    driver.find_element_by_xpath(Locators.Experience.input_tenth_question).click()
-    # select next button to the next page
+        until(ec.element_to_be_clickable((By.XPATH, Locators.Experience.click_eighth_question)))
+    # scroll down the page
+    driver.execute_script(Locators.ExecuteJavascript.scroll_down_the_page)
+    # click the eighth question
+    driver.find_element_by_xpath(Locators.Experience.click_eighth_question).click()
+    # click the ninth question
+    driver.find_element_by_xpath(Locators.Experience.click_ninth_question).click()
+    # click the tenth question
+    driver.find_element_by_xpath(Locators.Experience.click_tenth_question).click()
+    # click next button to the next page
     driver.find_element_by_xpath(Locators.Experience.button_second_next_page).click()
 
 
 def terms_and_conditions():
-    pass
+    # wait for the title shows up
+    WebDriverWait(driver, 10, 0.5). \
+        until(ec.visibility_of_element_located((By.XPATH, Locators.TermsAndConditions.title)))
+    # scroll down the page
+    driver.execute_script(Locators.ExecuteJavascript.scroll_down_the_page)
+    # click first condition
+    driver.find_element_by_xpath(Locators.TermsAndConditions.click_first_condition).click()
+    # click second condition
+    driver.find_element_by_xpath(Locators.TermsAndConditions.click_second_condition).click()
+    # click third condition
+    driver.find_element_by_xpath(Locators.TermsAndConditions.click_third_condition).click()
+    # click next button to the next page
+    driver.find_element_by_xpath(Locators.TermsAndConditions.button_next_page).click()
 
 
-def confirm_ID():
+def confirm_id():
     pass
 
 
@@ -185,4 +199,4 @@ if __name__ == '__main__':
     investment()
     experience()
     terms_and_conditions()
-    confirm_ID()
+    confirm_id()
