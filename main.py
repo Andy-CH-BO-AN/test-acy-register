@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.action_chains import ActionChains
+import pyautogui as pag
 import random
 
 import Locators
@@ -71,7 +72,7 @@ def personal_detail():
 
 def about_you():
     # wait zip code show up
-    WebDriverWait(driver, 5, 0.5). \
+    WebDriverWait(driver, 10, 0.5). \
         until(ec.visibility_of_element_located((By.XPATH, Locators.AboutYou.input_zip_code)))
     # select gender
     driver.find_element_by_xpath(Locators.AboutYou.select_gender_box).click()
@@ -104,13 +105,15 @@ def about_you():
 
 def investment():
     # wait for account type url shows up
-    WebDriverWait(driver, 5, 0.5). \
+    WebDriverWait(driver, 10, 0.5). \
         until(ec.visibility_of_element_located((By.XPATH, Locators.Investment.url_account_type)))
     # select employment
-    driver.find_element_by_xpath(Locators.Investment.select_leverage_box).click()
+    driver.find_element_by_xpath(Locators.Investment.select_employment_box).click()
     driver.find_element_by_css_selector(Locators.Investment.select_employment).click()
-    # select occupation
+    # select occupation and wait the drop down box shows up
     driver.find_element_by_xpath(Locators.Investment.select_occupation_box).click()
+    WebDriverWait(driver, 10, 0.5). \
+        until(ec.visibility_of_element_located((By.CSS_SELECTOR, Locators.Investment.select_occupation)))
     driver.find_element_by_css_selector(Locators.Investment.select_occupation).click()
     # select industry
     driver.find_element_by_xpath(Locators.Investment.select_industry_box).click()
@@ -121,6 +124,20 @@ def investment():
     # select total amount of investment
     driver.find_element_by_xpath(Locators.Investment.select_total_amount_of_investment_box).click()
     driver.find_element_by_css_selector(Locators.Investment.select_total_amount_of_investment).click()
+    # select trading platform
+    driver.find_element_by_xpath(Locators.Investment.select_trading_platform_box).click()
+    driver.find_element_by_css_selector(Locators.Investment.select_trading_platform).click()
+    # select funding currency
+    driver.find_element_by_xpath(Locators.Investment.select_funding_currency_box).click()
+    driver.find_element_by_css_selector(Locators.Investment.select_funding_currency).click()
+    # select account types
+    driver.find_element_by_xpath(Locators.Investment.select_account_types_box).click()
+    driver.find_element_by_css_selector(Locators.Investment.select_account_types).click()
+    # select leverage
+    driver.find_element_by_xpath(Locators.Investment.select_leverage_box).click()
+    driver.find_element_by_css_selector(Locators.Investment.select_leverage).click()
+    # select next button to next page
+    driver.find_element_by_xpath(Locators.Investment.button_next_page).click()
 
 
 def experience():
