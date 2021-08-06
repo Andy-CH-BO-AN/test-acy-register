@@ -80,3 +80,60 @@ class AboutYou:
                        '2]/div/div/form/div[10]/button[2] '
     button_back_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                        '2]/div/div/form/div[10]/button[1] '
+
+
+class Investment:
+    select_employment_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                            '2]/div/div/form/div[1]/div/div/div[1] '
+    select_employment = f'li[data-testid="employment{random.randint(0, 3)}"]'
+
+    select_occupation_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                            '2]/div/div/form/div[2]/div/div/div[1] '
+    select_occupation = f'li[data-testid="occupation{random.randint(0, 8)}"]'
+
+    select_industry_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                          '2]/div/div/form/div[3]/div/div/div[1] '
+    select_industry = f'li[data-testid="industry{random.randint(0, 18)}"]'
+
+    select_annual_income_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                               '2]/div/div/form/div[4]/div/div/div[1] '
+    select_annual_income = f'li[data-testid="annualIncome{random.randint(0, 3)}"]'
+
+    select_total_amount_of_investment_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[' \
+                                            '2]/div/div/div[2]/div/div/form/div[5]/div/div/div[1] '
+    select_total_amount_of_investment = f'li[data-testid="totalInvestmentsSavings{random.randint(0, 3)}"]'
+
+    select_trading_platform_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                                  '2]/div/div/form/div[6]/div/div/div[1] '
+    select_trading_platform = f'li[data-testid="platform{random.randint(0, 1)}"]'
+
+    select_funding_currency_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                                  '2]/div/div/form/div[7]/div/div/div[1] '
+    select_funding_currency = f'li[data-testid="fundingCurrency{random.randint(0, 6)}"]'
+
+    select_account_types_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                               '2]/div/div/form/div[8]/div/div/div[1] '
+    select_account_types = f'li[data-testid="accountType{random.randint(0, 2)}"]'
+
+    url_account_type = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/form/p/a'
+
+    select_leverage_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                          '2]/div/div/form/div[9]/div/div/div[1] '
+    select_leverage = f'li[data-testid="accountType{random.randint(0, 5)}"]'
+
+    button_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                       '2]/div/div/form/div[10]/button[2] '
+    button_back_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                       '2]/div/div/form/div[10]/button[1] '
+
+
+class Experience:
+    pass
+
+
+class TermsAndConditions:
+    pass
+
+
+class ConfirmID:
+    pass
