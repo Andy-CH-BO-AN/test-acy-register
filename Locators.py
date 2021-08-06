@@ -194,7 +194,18 @@ class TermsAndConditions:
 
 
 class ConfirmID:
-    pass
+    test_image_path = 'TestImages/ID.jpg'
+    content_id_front = '//*[@id="confirmId"]/div/div[1]/div/p'
+    upload_id_front = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                      '2]/div/div/form/div/div[1]/div/div[1]/input '
+    upload_id_back = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                     '2]/div/div/form/div/div[2]/div/div[1]/input '
+    upload_address = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                     '2]/div/div/form/div/div[3]/div/div[1]/input '
+    upload_other_document = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                            '2]/div/div/form/div/div[4]/div/div[1]/input '
+    button_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
+                       '2]/div/div/form/button '
 
 
 class ExecuteJavascript:
