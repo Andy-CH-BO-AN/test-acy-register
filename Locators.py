@@ -9,6 +9,7 @@ button_xxx: button
 click_xxx: radio button
 url_xxx: direct to the url page
 title: page title
+content: guide or spec
 
 """
 
