@@ -3,9 +3,12 @@ import random
 """
 locators definition
 
-select_xxx : dropdown box
-input_xxx : input
-button_xxx : button
+select_xxx: dropdown box
+input_xxx: input
+button_xxx: button
+click_xxx: radio button
+url_xxx: direct to the url page
+title: page title
 
 """
 
@@ -85,40 +88,49 @@ class AboutYou:
 class Investment:
     select_employment_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                             '2]/div/div/form/div[1]/div/div/div[1] '
+    # css selector
     select_employment = f'li[data-testid="employment{random.randint(0, 3)}"]'
 
     select_occupation_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                             '2]/div/div/form/div[2]/div/div/div[1] '
+    # css selector
     select_occupation = f'li[data-testid="occupation{random.randint(0, 8)}"]'
 
     select_industry_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                           '2]/div/div/form/div[3]/div/div/div[1] '
+    # css selector
     select_industry = f'li[data-testid="industry{random.randint(0, 18)}"]'
 
     select_annual_income_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                                '2]/div/div/form/div[4]/div/div/div[1] '
+    # css selector
     select_annual_income = f'li[data-testid="annualIncome{random.randint(0, 3)}"]'
 
     select_total_amount_of_investment_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[' \
                                             '2]/div/div/div[2]/div/div/form/div[5]/div/div/div[1] '
+    # css selector
     select_total_amount_of_investment = f'li[data-testid="totalInvestmentsSavings{random.randint(0, 3)}"]'
 
     select_trading_platform_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                                   '2]/div/div/form/div[6]/div/div/div[1] '
+    # css selector
     select_trading_platform = f'li[data-testid="platform{random.randint(0, 1)}"]'
 
     select_funding_currency_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                                   '2]/div/div/form/div[7]/div/div/div[1] '
+    # css selector
     select_funding_currency = f'li[data-testid="fundingCurrency{random.randint(0, 6)}"]'
 
     select_account_types_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                                '2]/div/div/form/div[8]/div/div/div[1] '
-    select_account_types = f'li[data-testid="accountType{random.randint(0, 2)}"]'
+    # css selector
+    select_account_types = f'li[data-testid="accountType{random.randint(0, 1)}"]'
 
     url_account_type = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/form/p/a'
 
     select_leverage_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                           '2]/div/div/form/div[9]/div/div/div[1] '
+    # css selector
     select_leverage = f'li[data-testid="leverage{random.randint(0, 5)}"]'
 
     button_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
@@ -128,29 +140,31 @@ class Investment:
 
 
 class Experience:
-    input_first_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+    click_first_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                            f'3]/div[1]/div[1]/fieldset/div/label[{random.randint(1, 3)}] '
-    input_second_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+    click_second_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                             f'3]/div[1]/div[2]/fieldset/div/label[{random.randint(1, 2)}] '
-    input_third_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+    click_third_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                            f'3]/div[1]/div[3]/fieldset/div/label[{random.randint(1, 2)}] '
-    input_fourth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+    click_fourth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                             f'3]/div[1]/div[4]/fieldset/div/label[{random.randint(1, 4)}] '
-    input_fifth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+    click_fifth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                            f'3]/div[1]/div[5]/fieldset/div/label[{random.randint(1, 2)}] '
     button_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                        '3]/div[1]/div[6]/button[2] '
     button_back_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[3]/div[' \
                        '1]/div[6]/button[1] '
-    input_sixth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+    click_sixth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                            f'3]/div[2]/div[1]/fieldset/div/label[{random.randint(1, 3)}] '
-    input_seventh_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+    click_seventh_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                              f'3]/div[2]/div[2]/fieldset/div/label[{random.randint(1, 2)}] '
-    input_eighth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+    # /html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[3]/div[2]/div[3]/fieldset/div/label[1]/span[1]/span[1]/input
+    # /html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[3]/div[2]/div[3]/fieldset/div/label[2]/span[1]/span[1]/input
+    click_eighth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                             f'3]/div[2]/div[3]/fieldset/div/label[{random.randint(1, 3)}] '
-    input_ninth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+    click_ninth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                            f'3]/div[2]/div[4]/fieldset/div/label[{random.randint(1, 3)}] '
-    input_tenth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+    click_tenth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                            f'3]/div[2]/div[5]/fieldset/div/label[{random.randint(1, 2)}] '
     button_second_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                               '3]/div[2]/div[6]/button[2] '
@@ -159,7 +173,24 @@ class Experience:
 
 
 class TermsAndConditions:
-    pass
+    title = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div[1]/div/h5[1]'
+
+    click_first_condition = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div[' \
+                            '2]/div/form/div[1]/label[1]/span[1]/span[1]/input '
+    url_first_condition = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div[' \
+                          '2]/div/form/div[1]/label[1]/span[2]/a '
+    click_second_condition = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div[' \
+                             '2]/div/form/div[1]/label[2]/span[1]/span[1]/input '
+    url_second_condition = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div[' \
+                           '2]/div/form/div[1]/label[2]/span[2]/a '
+    click_third_condition = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div[' \
+                            '2]/div/form/div[1]/label[3]/span[1]/span[1]/input '
+    url_third_condition = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div[' \
+                          '2]/div/form/div[1]/label[3]/span[2]/a '
+    button_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div[' \
+                       '2]/div/form/div[2]/button[2] '
+    button_back_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div[' \
+                       '2]/div/form/div[2]/button[1] '
 
 
 class ConfirmID:
