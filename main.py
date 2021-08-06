@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.action_chains import ActionChains
 import random
 import Locators
+import os
 
 url = 'https://acycn.com/en/open-live-account'
 edge_path = EdgeChromiumDriverManager().install()
@@ -190,7 +191,21 @@ def terms_and_conditions():
 
 
 def confirm_id():
-    pass
+    # wait for the update id front shows up
+    WebDriverWait(driver, 10, 0.5). \
+        until(ec.visibility_of_element_located((By.XPATH, Locators.ConfirmID.content_id_front)))
+    # get absolute path
+    test_image_absolute_path = os.path.abspath(Locators.ConfirmID.test_image_path)
+    # update id front
+    driver.find_element_by_xpath(Locators.ConfirmID.upload_id_front).send_keys(test_image_absolute_path)
+    # update id back
+    driver.find_element_by_xpath(Locators.ConfirmID.upload_id_back).send_keys(test_image_absolute_path)
+    # update address
+    driver.find_element_by_xpath(Locators.ConfirmID.upload_address).send_keys(test_image_absolute_path)
+    # update other document
+    driver.find_element_by_xpath(Locators.ConfirmID.upload_other_document).send_keys(test_image_absolute_path)
+    # click next button to the next page
+    driver.find_element_by_xpath(Locators.ConfirmID.button_next_page).click()
 
 
 if __name__ == '__main__':
