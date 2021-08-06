@@ -128,7 +128,34 @@ class Investment:
 
 
 class Experience:
-    pass
+    input_first_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                           f'3]/div[1]/div[1]/fieldset/div/label[{random.randint(1, 3)}] '
+    input_second_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                            f'3]/div[1]/div[2]/fieldset/div/label[{random.randint(1, 2)}] '
+    input_third_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                           f'3]/div[1]/div[3]/fieldset/div/label[{random.randint(1, 2)}] '
+    input_fourth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                            f'3]/div[1]/div[4]/fieldset/div/label[{random.randint(1, 4)}] '
+    input_fifth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                           f'3]/div[1]/div[5]/fieldset/div/label[{random.randint(1, 2)}] '
+    button_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                       '3]/div[1]/div[6]/button[2] '
+    button_back_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[3]/div[' \
+                       '1]/div[6]/button[1] '
+    input_sixth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                           f'3]/div[2]/div[1]/fieldset/div/label[{random.randint(1, 3)}] '
+    input_seventh_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                             f'3]/div[2]/div[2]/fieldset/div/label[{random.randint(1, 2)}] '
+    input_eighth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                            f'3]/div[2]/div[3]/fieldset/div/label[{random.randint(1, 3)}] '
+    input_ninth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                           f'3]/div[2]/div[4]/fieldset/div/label[{random.randint(1, 3)}] '
+    input_tenth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                           f'3]/div[2]/div[5]/fieldset/div/label[{random.randint(1, 2)}] '
+    button_second_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                              '3]/div[2]/div[6]/button[2] '
+    button_second_back_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
+                              '3]/div[2]/div[6]/button[1] '
 
 
 class TermsAndConditions:
