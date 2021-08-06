@@ -159,8 +159,6 @@ class Experience:
                            f'3]/div[2]/div[1]/fieldset/div/label[{random.randint(1, 3)}] '
     click_seventh_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                              f'3]/div[2]/div[2]/fieldset/div/label[{random.randint(1, 2)}] '
-    # /html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[3]/div[2]/div[3]/fieldset/div/label[1]/span[1]/span[1]/input
-    # /html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[3]/div[2]/div[3]/fieldset/div/label[2]/span[1]/span[1]/input
     click_eighth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
                             f'3]/div[2]/div[3]/fieldset/div/label[{random.randint(1, 3)}] '
     click_ninth_question = f'/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div/form/div[' \
@@ -207,6 +205,7 @@ class ConfirmID:
                             '2]/div/div/form/div/div[4]/div/div[1]/input '
     button_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                        '2]/div/div/form/button '
+    title_register_successfully = 'open-live-acc-form-wrapper,live-acc-after-submit'
 
 
 class ExecuteJavascript:
