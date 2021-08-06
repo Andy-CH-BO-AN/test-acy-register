@@ -94,15 +94,33 @@ def about_you():
     # input state
     driver.find_element_by_xpath(Locators.AboutYou.input_state).send_keys('Mars')
     # input zip code
-    driver.find_element_by_xpath(Locators.AboutYou.input_zip_code).send_keys(random.randint(100,200000))
+    driver.find_element_by_xpath(Locators.AboutYou.input_zip_code).send_keys(random.randint(100, 200000))
     # wait next button clickable
     WebDriverWait(driver, 5, 0.5). \
         until(ec.element_to_be_clickable((By.XPATH, Locators.AboutYou.button_next_page)))
     # click next button to next page
     driver.find_element_by_xpath(Locators.AboutYou.button_next_page).click()
 
+
 def investment():
-    pass
+    # wait for account type url shows up
+    WebDriverWait(driver, 5, 0.5). \
+        until(ec.visibility_of_element_located((By.XPATH, Locators.Investment.url_account_type)))
+    # select employment
+    driver.find_element_by_xpath(Locators.Investment.select_leverage_box).click()
+    driver.find_element_by_css_selector(Locators.Investment.select_employment).click()
+    # select occupation
+    driver.find_element_by_xpath(Locators.Investment.select_occupation_box).click()
+    driver.find_element_by_css_selector(Locators.Investment.select_occupation).click()
+    # select industry
+    driver.find_element_by_xpath(Locators.Investment.select_industry_box).click()
+    driver.find_element_by_css_selector(Locators.Investment.select_industry).click()
+    # select annual income
+    driver.find_element_by_xpath(Locators.Investment.select_annual_income_box).click()
+    driver.find_element_by_css_selector(Locators.Investment.select_annual_income).click()
+    # select total amount of investment
+    driver.find_element_by_xpath(Locators.Investment.select_total_amount_of_investment_box).click()
+    driver.find_element_by_css_selector(Locators.Investment.select_total_amount_of_investment).click()
 
 
 def experience():
@@ -120,3 +138,7 @@ def confirm_ID():
 if __name__ == '__main__':
     personal_detail()
     about_you()
+    investment()
+    experience()
+    terms_and_conditions()
+    confirm_ID()
