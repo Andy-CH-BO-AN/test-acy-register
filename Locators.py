@@ -119,7 +119,7 @@ class Investment:
 
     select_leverage_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                           '2]/div/div/form/div[9]/div/div/div[1] '
-    select_leverage = f'li[data-testid="accountType{random.randint(0, 5)}"]'
+    select_leverage = f'li[data-testid="leverage{random.randint(0, 5)}"]'
 
     button_next_page = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                        '2]/div/div/form/div[10]/button[2] '
@@ -137,3 +137,7 @@ class TermsAndConditions:
 
 class ConfirmID:
     pass
+
+
+class ExecuteJavascript:
+    scroll_down_the_page = 'window.scrollTo(0, document.body.scrollHeight);'
