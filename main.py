@@ -6,9 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.action_chains import ActionChains
-import pyautogui as pag
 import random
-
 import Locators
 
 url = 'https://acycn.com/en/open-live-account'
@@ -141,7 +139,36 @@ def investment():
 
 
 def experience():
-    pass
+    # wait for account type url shows up
+    WebDriverWait(driver, 10, 0.5). \
+        until(ec.visibility_of_element_located((By.XPATH, Locators.Experience.input_first_question)))
+    # select the first question
+    driver.find_element_by_xpath(Locators.Experience.input_first_question).click()
+    # select the second question
+    driver.find_element_by_xpath(Locators.Experience.input_second_question).click()
+    # select the third question
+    driver.find_element_by_xpath(Locators.Experience.input_third_question).click()
+    # select the fourth question
+    driver.find_element_by_xpath(Locators.Experience.input_fourth_question).click()
+    # select the fifth question
+    driver.find_element_by_xpath(Locators.Experience.input_fifth_question).click()
+    # select next button to the second page
+    driver.find_element_by_xpath(Locators.Experience.button_next_page).click()
+    # select the sixth question
+    driver.find_element_by_xpath(Locators.Experience.input_sixth_question).click()
+    # select the seventh question
+    driver.find_element_by_xpath(Locators.Experience.input_seventh_question).click()
+    # wait for the button can be clicked
+    WebDriverWait(driver, 10, 0.5). \
+        until(ec.element_to_be_clickable((By.XPATH, Locators.Experience.input_eighth_question)))
+    # select the eighth question
+    driver.find_element_by_xpath(Locators.Experience.input_eighth_question).click()
+    # select the ninth question
+    driver.find_element_by_xpath(Locators.Experience.input_ninth_question).click()
+    # select the tenth question
+    driver.find_element_by_xpath(Locators.Experience.input_tenth_question).click()
+    # select next button to the next page
+    driver.find_element_by_xpath(Locators.Experience.button_second_next_page).click()
 
 
 def terms_and_conditions():
