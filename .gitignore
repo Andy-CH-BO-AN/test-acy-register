@@ -7,3 +7,4 @@
 /.idea/vcs.xml
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/test-acy-register.iml
+/.pytest_cache/
