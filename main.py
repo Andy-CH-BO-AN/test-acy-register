@@ -1,6 +1,5 @@
-import time
 from selenium import webdriver
-from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
@@ -15,8 +14,10 @@ class Register:
     def main(self):
         global driver
         url = 'https://acycn.com/en/open-live-account'
-        edge_path = EdgeChromiumDriverManager().install()
-        driver = webdriver.Edge(edge_path)
+        # edge_path = EdgeChromiumDriverManager().install()
+        chrome_path = ChromeDriverManager().install()
+        # driver = webdriver.Edge(edge_path)
+        driver = webdriver.Chrome(chrome_path)
         driver.get(url)
         driver.maximize_window()
 
