@@ -35,7 +35,7 @@ class Register:
         driver.find_element_by_xpath(Locators.PersonalDetail.select_account_type_personal).click()
         # select country
         driver.find_element_by_xpath(Locators.PersonalDetail.select_country_name_box).click()
-        driver.find_element_by_xpath(Locators.PersonalDetail.select_country).click()
+        driver.find_element_by_css_selector(Locators.PersonalDetail.select_country).click()
         # select title
         driver.find_element_by_xpath(Locators.PersonalDetail.select_title_box).click()
         driver.find_element_by_css_selector(Locators.PersonalDetail.select_title).click()
