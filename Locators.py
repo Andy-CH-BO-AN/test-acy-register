@@ -15,7 +15,7 @@ content: guide or spec
 
 
 class PersonalDetail:
-    country_list = ['China', 'Taiwan']
+    country_no = [i for i in range(248) if i not in [49, 57, 96, 105, 106, 116, 122, 125, 132, 195, 200, 233, 247]]
     select_language_box = '/html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]'
     select_language_name = '//*[@id="gatsby-focus-wrapper"]/div[1]/div[2]/div[2]/div[2]/div[2]/div/*/p[text() = ' \
                            '"English"] '
@@ -26,7 +26,7 @@ class PersonalDetail:
                                    '2]/div/div/form/div[1]/div/div/div[2]/div/li[1] '
     select_country_name_box = '//*[@id="gatsby-focus-wrapper"]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
                               '2]/div/div/form/div[2]/div/div/div/div/div[1]/div '
-    select_country = f'//*[@id="liWrapper"]/*[text()="{random.choice(country_list)}"]'
+    select_country = f'li[data-testid="country{random.choice(country_no)}"]'
     select_title_box = '/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/form/div[' \
                        '3]/div/div/div[1] '
     # css selector
