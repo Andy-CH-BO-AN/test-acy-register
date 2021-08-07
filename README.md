@@ -14,5 +14,7 @@ A tool to check those countries that can't register the ACY user account.
 
 # Set up
 git clone https://github.com/Andy-CH-BO-AN/test-acy-register.git
+
 pip install -r requirement.txt
+
 pytest test_acy_register.py
