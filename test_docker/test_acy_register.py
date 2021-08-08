@@ -11,3 +11,4 @@ class TestRegister:
         main.Register().experience()
         main.Register().terms_and_conditions()
         main.Register().confirm_id()
+        main.Register().close_browser()
