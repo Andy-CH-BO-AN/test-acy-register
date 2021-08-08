@@ -1,14 +1,13 @@
 from selenium import webdriver
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
-
 import Locators
 
 url = 'https://acycn.com/en/open-live-account'
-edge_path = EdgeChromiumDriverManager().install()
-driver = webdriver.Edge(edge_path)
+chrome_path = ChromeDriverManager().install()
+driver = webdriver.Chrome(chrome_path)
 driver.get(url)
 driver.maximize_window()
 
@@ -39,6 +38,7 @@ def main():
 
     print('The country cannot register: ', check_name)
     print("country number:", check_no)
+    driver.quit()
 
 
 def select_language():
