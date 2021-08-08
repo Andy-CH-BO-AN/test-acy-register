@@ -1,10 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as ec
 from time import sleep
-import Locators
 
 sleep(5)
 url = 'https://acycn.com/en/open-live-account'
@@ -15,7 +11,6 @@ driver.get(url)
 def main():
     check_no = []
     check_name = []
-    # select_language()
 
     for i in range(248):
 
@@ -38,18 +33,7 @@ def main():
 
     print('The country cannot register: ', check_name)
     print("country number:", check_no)
-
-
-def select_language():
-    WebDriverWait(driver, 10, 0.5). \
-        until(ec.element_to_be_clickable((By.XPATH, Locators.PersonalDetail.select_language_confirm)))
-    # select language box
-    driver.find_element_by_xpath(Locators.PersonalDetail.select_language_box).click()
-    driver.find_element_by_xpath(Locators.PersonalDetail.select_language_name).click()
-    driver.find_element_by_xpath(Locators.PersonalDetail.select_language_confirm).click()
-
-    WebDriverWait(driver, 5, 0.5). \
-        until(ec.element_to_be_clickable((By.XPATH, Locators.PersonalDetail.select_account_type_box)))
+    driver.quit()
 
 
 if __name__ == '__main__':
