@@ -8,3 +8,4 @@
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/test-acy-register.iml
 /.pytest_cache/
+/test_docker/.pytest_cache/
