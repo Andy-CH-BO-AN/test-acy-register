@@ -3,7 +3,8 @@ Create an automated testing script for "https://www.acy.com/en/open-live-account
 Use pytest with selenium to test if we can register ACY successfully or not.
 
 # Structure
-test-acy-register
+### test-acy-register
+
     │  README.md          │ TestImages folder
     
     │  test_docker folder ├─Locators.py
