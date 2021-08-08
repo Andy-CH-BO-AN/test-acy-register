@@ -210,3 +210,6 @@ class Register:
         # wait next page title
         WebDriverWait(driver, 20, 0.5). \
             until(ec.visibility_of_element_located((By.CSS_SELECTOR, Locators.ConfirmID.title_register_successfully)))
+
+    def close_browser(self):
+        driver.quit()

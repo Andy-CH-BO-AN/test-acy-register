@@ -14,9 +14,7 @@ class Register:
     def main(self):
         global driver
         url = 'https://acycn.com/en/open-live-account'
-        # edge_path = EdgeChromiumDriverManager().install()
         chrome_path = ChromeDriverManager().install()
-        # driver = webdriver.Edge(edge_path)
         driver = webdriver.Chrome(chrome_path)
         driver.get(url)
         driver.maximize_window()
@@ -210,3 +208,6 @@ class Register:
         # wait next page title
         WebDriverWait(driver, 20, 0.5). \
             until(ec.visibility_of_element_located((By.CSS_SELECTOR, Locators.ConfirmID.title_register_successfully)))
+
+    def close_browser(self):
+        driver.quit()
