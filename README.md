@@ -51,7 +51,7 @@ docker-compose up
 
 ### Select language
 
-Normal version needs to select language in the beginning of accessing the page:
+Normal version needs to select a language in the beginning of accessing the page:
 ![normal_version.png](GuideImages/normal_version.png)
-Docker version doesn't have to select language:
+Docker version doesn't have to select a language:
 ![docker_version.png](GuideImages/docker_version.png)
