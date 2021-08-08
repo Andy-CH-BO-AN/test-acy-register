@@ -46,3 +46,12 @@ git clone https://github.com/Andy-CH-BO-AN/test-acy-register.git
 docker-compose build
 
 docker-compose up
+
+# Difference between normal version and docker version
+
+### Select language
+
+Normal version needs to select language in the beginning of accessing the page:
+![normal_version.png](GuideImages/normal_version.png)
+Docker version doesn't have to select language:
+![docker_version.png](GuideImages/docker_version.png)
