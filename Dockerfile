@@ -1,10 +1,13 @@
-FROM python:3.8.6-alpine
+FROM python:3.11-slim
 
-ENV PYTHONUNBUFFERED 1
-COPY requirements.txt requirements.txt
-RUN pip3 install --upgrade pip
-RUN pip3 install -r requirements.txt
+ENV PYTHONUNBUFFERED=1
 
-RUN mkdir "/app"
-COPY test_docker /app
 WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["pytest", "-q", "test_acy_register.py"]

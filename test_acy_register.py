@@ -1,14 +1,24 @@
 import pytest
-import main
+
+from main import Register
 
 
-class TestRegister:
-    def test_register_successful(self):
-        main.Register().main()
-        main.Register().personal_detail()
-        main.Register().about_you()
-        main.Register().investment()
-        main.Register().experience()
-        main.Register().terms_and_conditions()
-        main.Register().confirm_id()
-        main.Register().close_browser()
+@pytest.fixture
+def register():
+    flow = Register()
+    flow.open()
+    try:
+        yield flow
+    finally:
+        flow.close()
+
+
+def test_register_successful(register):
+    register.personal_detail()
+    register.about_you()
+    register.investment()
+    register.experience()
+    register.terms_and_conditions()
+
+    success_page = register.confirm_id()
+    assert success_page.is_displayed()
