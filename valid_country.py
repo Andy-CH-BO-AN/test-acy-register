@@ -1,57 +1,54 @@
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as ec
-import Locators
 
-url = 'https://acycn.com/en/open-live-account'
-chrome_path = ChromeDriverManager().install()
-driver = webdriver.Chrome(chrome_path)
-driver.get(url)
-driver.maximize_window()
+import Locators
+from main import Register
+
+
+COUNTRY_COUNT = 248
+COUNTRY_ERROR = (
+    "/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/form/"
+    "div[2]/div[2]/span"
+)
+
+
+def find_invalid_countries(register):
+    invalid_countries = []
+
+    if not register.skip_language_selection:
+        register.select_language()
+
+    register._wait_clickable(By.XPATH, Locators.PersonalDetail.select_account_type_box, timeout=5)
+
+    for country_index in range(COUNTRY_COUNT):
+        selector = f'li[data-testid="country{country_index}"]'
+        register._click(By.XPATH, Locators.PersonalDetail.select_country_name_box)
+        country = register.driver.find_element(By.CSS_SELECTOR, selector)
+        country_name = country.text
+        country.click()
+
+        try:
+            register.driver.find_element(By.XPATH, COUNTRY_ERROR)
+        except NoSuchElementException:
+            continue
+
+        invalid_countries.append((country_index, country_name))
+        print(country_index, country_name)
+
+    return invalid_countries
 
 
 def main():
-    check_no = []
-    check_name = []
-    select_language()
+    register = Register()
+    register.open()
+    try:
+        invalid_countries = find_invalid_countries(register)
+    finally:
+        register.close()
 
-    for i in range(248):
-
-        select_country = f'li[data-testid="country{i}"]'
-        select_country_name_box = '//*[@id="gatsby-focus-wrapper"]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[' \
-                                  '2]/div/div/form/div[2]/div/div/div/div/div[1]/div '
-        driver.find_element_by_xpath(select_country_name_box).click()
-        country_name = driver.find_element_by_css_selector(select_country).text
-        driver.find_element_by_css_selector(select_country).click()
-
-        try:
-            driver.find_element_by_xpath \
-                ('/html/body/div[1]/div[1]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/form/div['
-                 '2]/div[2]/span')
-            check_no.append(i)
-            check_name.append(country_name)
-            print(i, country_name)
-        except:
-            pass
-
-    print('The country cannot register: ', check_name)
-    print("country number:", check_no)
-    driver.quit()
+    print("The country cannot register:", [name for _, name in invalid_countries])
+    print("country number:", [index for index, _ in invalid_countries])
 
 
-def select_language():
-    WebDriverWait(driver, 5, 0.5). \
-        until(ec.element_to_be_clickable((By.XPATH, Locators.PersonalDetail.select_language_confirm)))
-    # select language box
-    driver.find_element_by_xpath(Locators.PersonalDetail.select_language_box).click()
-    driver.find_element_by_xpath(Locators.PersonalDetail.select_language_name).click()
-    driver.find_element_by_xpath(Locators.PersonalDetail.select_language_confirm).click()
-
-    WebDriverWait(driver, 5, 0.5). \
-        until(ec.element_to_be_clickable((By.XPATH, Locators.PersonalDetail.select_account_type_box)))
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
